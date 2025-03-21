@@ -2,25 +2,25 @@
 
 namespace App\Component;
 
-use App\Service\CodeService;
+use App\Service\AccordionService;
 use App\Service\TwigService;
 
-class CodeComponent implements MarkdownComponentInterface
+class AccordionComponent implements MarkdownComponentInterface
 {
-    private CodeService $codeService;
+    private AccordionService $accordionService;
     private TwigService $twigService;
 
     public function __construct(
-        CodeService $codeService,
+        AccordionService $accordionService,
         TwigService $twigService
     ) {
-        $this->codeService = $codeService;
+        $this->accordionService = $accordionService;
         $this->twigService = $twigService;
     }
 
     public function getPattern(): string
     {
-        return '/\[CODE\]\s*\n(.*?)\n\[\/CODE\]/s';
+        return '/\[ACCORDION\]\s*\n(.*?)\n\[\/ACCORDION\]/s';
     }
 
     /**
@@ -33,21 +33,21 @@ class CodeComponent implements MarkdownComponentInterface
         $config = json_decode(trim($content), true);
         if (!$config) {
             return [
-                'html' => '<div class="' . ($theme['error'] ?? 'text-red-500') . '">Error: Invalid code configuration</div>',
+                'html' => '<div class="' . ($theme['error'] ?? 'text-red-500') . '">Error: Invalid button configuration</div>',
                 'js' => ''
             ];
         }
 
-        $codeConfig = $this->codeService->getCodeConfig($config, $theme);
+        $accordionConfig = $this->accordionService->getAccordionConfig($config, $theme);
 
         return [
-            'html' => $this->twigService->render('components/code.html.twig', $codeConfig),
-            'js' => $codeConfig['js']
+            'html' => $this->twigService->render('components/accordion.html.twig', $accordionConfig),
+            'js' => $accordionConfig['js']
         ];
     }
 
     public function getName(): string
     {
-        return 'code';
+        return 'button';
     }
 }

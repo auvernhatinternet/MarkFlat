@@ -5,10 +5,11 @@ use App\Component\MapComponent;
 use App\Component\CodeComponent;
 use App\Component\ButtonComponent;
 use App\Service\ComponentRegistry;
+use App\Component\AccordionComponent;
 use Twig\Extra\Markdown\DefaultMarkdown;
 use Symfony\Bundle\TwigBundle\TwigBundle;
-use MarkFlat\MarkFlatEditor\MarkFlatEditorBundle;
 use Twig\Extra\TwigExtraBundle\TwigExtraBundle;
+use MarkFlat\MarkFlatEditor\MarkFlatEditorBundle;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
@@ -121,11 +122,15 @@ class Kernel extends BaseKernel
         $services->set(CodeComponent::class)
             ->args([new Reference('App\Service\CodeService')]);
 
+        $services->set(AccordionComponent::class)
+            ->args([new Reference('App\Service\AccordionService')]);
+
         // Configure Components Registry
         $services->set(ComponentRegistry::class)
             ->call('addComponent', [new Reference(MapComponent::class)])
             ->call('addComponent', [new Reference(ButtonComponent::class)])
-            ->call('addComponent', [new Reference(CodeComponent::class)]);
+            ->call('addComponent', [new Reference(CodeComponent::class)])
+            ->call('addComponent', [new Reference(AccordionComponent::class)]);
 
         // Add translation paths to container parameters
         $container->parameters()

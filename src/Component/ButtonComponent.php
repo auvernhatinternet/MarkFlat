@@ -3,14 +3,19 @@
 namespace App\Component;
 
 use App\Service\ButtonService;
+use App\Service\TwigService;
 
 class ButtonComponent implements MarkdownComponentInterface
 {
     private ButtonService $buttonService;
+    private TwigService $twigService;
 
-    public function __construct(ButtonService $buttonService)
-    {
+    public function __construct(
+        ButtonService $buttonService,
+        TwigService $twigService
+    ) {
         $this->buttonService = $buttonService;
+        $this->twigService = $twigService;
     }
 
     public function getPattern(): string
@@ -21,6 +26,7 @@ class ButtonComponent implements MarkdownComponentInterface
     /**
      * @param string $content
      * @param array<string, string> $theme
+     * @return array{html: string, js: string}
      */
     public function process(string $content, array $theme): array
     {
@@ -32,7 +38,12 @@ class ButtonComponent implements MarkdownComponentInterface
             ];
         }
 
-        return $this->buttonService->getButtonConfig($config, $theme);
+        $buttonConfig = $this->buttonService->getButtonConfig($config, $theme);
+
+        return [
+            'html' => $this->twigService->render('components/button.html.twig', $buttonConfig),
+            'js' => $buttonConfig['js']
+        ];
     }
 
     public function getName(): string

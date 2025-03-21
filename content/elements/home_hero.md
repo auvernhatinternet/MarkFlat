@@ -25,5 +25,3 @@ Build beautiful websites with pure Markdown - no database required. Markflat com
     "display": "center"
 }
 [/BUTTON]
-
-[www.google.fr](https://www.google.fr)

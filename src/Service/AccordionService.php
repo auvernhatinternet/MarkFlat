@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-class CodeService
+class AccordionService
 {
     /**
      * @param array{
@@ -10,9 +10,9 @@ class CodeService
      *  display?: string
      * } $config
      * @param array<string, string> $theme
-     * @return array{text: string, display: string, codeClasses: string, js: string}
+     * @return array{accordionClasses: string, display: string, text: string, js: string}
      */
-    public function getCodeConfig(array $config, array $theme = []): array
+    public function getAccordionConfig(array $config, array $theme = []): array
     {
         $defaults = [
             'text' => '',
@@ -24,7 +24,7 @@ class CodeService
         return [
             'text' => $config['text'],
             'display' => $config['display'],
-            'codeClasses' => $theme['code'] ?? 'bg-gray-800 text-gray-200 rounded p-4',
+            'accordionClasses' => $theme['accordion'] ?? 'bg-gray-800 text-gray-200 rounded p-4',
             'js' => ''
         ];
     }
