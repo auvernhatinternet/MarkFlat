@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 class PageService
 {
     private string $projectDir;
+    private string $regexPageContent = '/^---\n(.*?)\n---\n(.*)/s';
 
     public function __construct(ParameterBagInterface $params)
     {
@@ -87,17 +88,24 @@ class PageService
         // Normalize line endings to \n
         $content = str_replace(["\r\n", "\r"], "\n", $content);
 
-        if (preg_match('/^---\n(.*?)\n---\n(.*)/s', $content, $matches)) {
+        if (preg_match($this->regexPageContent, $content, $matches)) {
             return Yaml::parse($matches[1]) ?? [];
         }
 
         return [];
     }
 
+    /**
+     * Parse the content of a page
+     * @param string $content The content of the page
+     * @return string The parsed content
+     */
     private function parsePageContent(string $content): string
     {
-        if (preg_match('/^---\n.*?\n---\n(.*)/s', $content, $matches)) {
-            return trim($matches[1]);
+        $content = str_replace(["\r\n", "\r"], "\n", $content);
+
+        if (preg_match($this->regexPageContent, $content, $matches)) {
+            return trim($matches[2]);
         }
 
         return trim($content);
