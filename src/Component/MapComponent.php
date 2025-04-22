@@ -3,14 +3,19 @@
 namespace App\Component;
 
 use App\Service\MapService;
+use App\Service\TwigService;
 
 class MapComponent implements MarkdownComponentInterface
 {
     private MapService $mapService;
+    private TwigService $twigService;
 
-    public function __construct(MapService $mapService)
-    {
+    public function __construct(
+        MapService $mapService,
+        TwigService $twigService
+    ) {
         $this->mapService = $mapService;
+        $this->twigService = $twigService;
     }
 
     public function getPattern(): string
@@ -21,6 +26,7 @@ class MapComponent implements MarkdownComponentInterface
     /**
      * @param string $content
      * @param array<string, string> $theme
+     * @return array{html: string, js: string}
      */
     public function process(string $content, array $theme): array
     {
@@ -32,7 +38,12 @@ class MapComponent implements MarkdownComponentInterface
             ];
         }
 
-        return $this->mapService->getMapConfig($config);
+        $mapConfig = $this->mapService->getMapConfig($config);
+
+        return [
+            'html' => $this->twigService->render('components/map.html.twig', $mapConfig),
+            'js' => $mapConfig['js']
+        ];
     }
 
     public function getName(): string

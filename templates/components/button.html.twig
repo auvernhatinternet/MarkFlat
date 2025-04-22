@@ -1,0 +1,9 @@
+{% set displayClasses = {
+    'center': 'flex justify-center',
+    'right': 'flex justify-end',
+    'left': 'flex justify-start'
+} %}
+
+<div class="{{ displayClasses[display|default('left')] }} {{ spacingClasses }}">
+    <a class="{{ buttonClasses }}" href="{{ link|e }}">{{ text|e }}</a>
+</div>

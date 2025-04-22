@@ -19,7 +19,16 @@ class MapService
      *  markers?: array<array{lat: float, lng: float, popup?: string}>,
      *  tiles?: string
      * } $config
-     * @return array{html: string, js: string}
+     * @return array{
+     *  id: string,
+     *  height: string,
+     *  width: string,
+     *  center: array{lat: float, lng: float},
+     *  zoom: int,
+     *  tiles: string,
+     *  markers: array<array{lat: float, lng: float, popup?: string}>,
+     *  js: string
+     * }
      */
     public function getMapConfig(array $config): array
     {
@@ -37,13 +46,6 @@ class MapService
             $config['id'] = $defaults['id'];
         }
         $config = array_merge($defaults, $config);
-
-        $html = sprintf(
-            '<div id="%s" style="height: %s; width: %s;" class="rounded shadow mt-2 mb-2"></div>',
-            htmlspecialchars($config['id']),
-            htmlspecialchars($config['height']),
-            htmlspecialchars($config['width'])
-        );
 
         $js = sprintf(
             'const %s = L.map("%s").setView([%f, %f], %d);',
@@ -77,9 +79,6 @@ class MapService
             $js .= sprintf('.addTo(%s);', $config['id']);
         }
 
-        return [
-            'html' => $html,
-            'js' => $js
-        ];
+        return array_merge($config, ['js' => $js]);
     }
 }

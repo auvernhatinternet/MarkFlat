@@ -19,7 +19,7 @@ class ButtonService
      *  display?: string
      * } $config
      * @param array<string, string> $theme
-     * @return array{html: string, js: string}
+     * @return array{buttonClasses: string, spacingClasses: string, display: string, link: string, text: string, js: string}
      */
     public function getButtonConfig(array $config, array $theme = []): array
     {
@@ -51,28 +51,15 @@ class ButtonService
             }
         }
 
-        // Add display alignment classes
-        $displayClasses = match($config['display']) {
-            'center' => 'flex justify-center',
-            'right' => 'flex justify-end',
-            default => 'flex justify-start'
-        };
-
         $buttonClasses = trim($buttonClasses);
         $spacingClasses = trim($spacingClasses);
 
-        // Create button HTML with wrapper div for spacing and alignment
-        $html = sprintf(
-            '<div class="%s %s"><a class="%s" href="%s">%s</a></div>',
-            $displayClasses,
-            $spacingClasses,
-            htmlspecialchars($buttonClasses),
-            htmlspecialchars($config['link']),
-            htmlspecialchars($config['text'])
-        );
-
         return [
-            'html' => $html,
+            'buttonClasses' => $buttonClasses,
+            'spacingClasses' => $spacingClasses,
+            'display' => $config['display'],
+            'link' => $config['link'],
+            'text' => $config['text'],
             'js' => ''
         ];
     }

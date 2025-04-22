@@ -1,0 +1,4 @@
+{# templates/components/code.html.twig #}
+<div class="{{ display == 'center' ? 'flex justify-center' : (display == 'right' ? 'flex justify-end' : 'flex justify-start') }}">
+    <code class="{{ codeClasses }} px-4 py-1 rounded">{{ text }}</code>
+</div>
