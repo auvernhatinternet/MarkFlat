@@ -28,7 +28,7 @@ class ButtonComponent implements MarkdownComponentInterface
         if (!$config) {
             return [
                 'html' => '<div class="' . ($theme['error'] ?? 'text-red-500') . '">Error: Invalid button configuration</div>',
-                'js' => ''
+                'js' => '',
             ];
         }
 

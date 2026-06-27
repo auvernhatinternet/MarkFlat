@@ -34,7 +34,7 @@ class SearchController extends AbstractController
             'search' => $search,
             'current_route' => 'search',
             'cms_site_name' => $_ENV['MF_CMS_SITE_NAME'] ?? 'MarkFlat CMS',
-            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default'
+            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default',
         ]);
     }
 }

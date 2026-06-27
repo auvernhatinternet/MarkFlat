@@ -50,7 +50,7 @@ class MarkdownTailwindServiceTest extends TestCase
                 'error' => 'text-red-500',
                 'button' => 'bg-gray-800 text-gray-200',
                 'button_primary' => 'bg-blue-600 text-white',
-                'button_big' => 'text-xl py-4 px-8'
+                'button_big' => 'text-xl py-4 px-8',
             ]);
 
         $this->mapService = new MapService();

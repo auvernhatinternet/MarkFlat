@@ -25,6 +25,13 @@
     </script>
     {% endif %}
     
+    {# Favicon #}
+    {% set favicon = favicon_url() %}
+    {% if favicon %}
+    <link rel="icon" type="image/x-icon" href="{{ asset(favicon) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset(favicon) }}">
+    {% endif %}
+    
     {# Performance Optimizations #}
     <link rel="preconnect" href="{{ asset('') }}" crossorigin>
     <link rel="dns-prefetch" href="{{ asset('') }}">

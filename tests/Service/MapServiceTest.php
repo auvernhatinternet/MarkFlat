@@ -40,9 +40,9 @@ class MapServiceTest extends TestCase
                 [
                     'lat' => 45.5,
                     'lng' => -73.5,
-                    'popup' => 'Test Location'
-                ]
-            ]
+                    'popup' => 'Test Location',
+                ],
+            ],
         ];
 
         $result = $this->mapService->getMapConfig($config);
@@ -82,9 +82,9 @@ class MapServiceTest extends TestCase
                 [
                     'lat' => 48.8566,
                     'lng' => 2.3522,
-                    'popup' => '<script>alert("XSS")</script>'
-                ]
-            ]
+                    'popup' => '<script>alert("XSS")</script>',
+                ],
+            ],
         ];
 
         $result = $this->mapService->getMapConfig($config);

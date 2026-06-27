@@ -34,7 +34,7 @@ class PageService
                     'path' => basename($file, '.md'),
                     'title' => $metadata['title'] ?? basename($file, '.md'),
                     'menu_order' => $metadata['menu_order'] ?? 999,
-                    'show_in_menu' => $metadata['show_in_menu'] ?? false
+                    'show_in_menu' => $metadata['show_in_menu'] ?? false,
                 ];
             }
         }
@@ -71,7 +71,7 @@ class PageService
             'title' => $metadata['title'] ?? basename($filePath, '.md'),
             'path' => $path,
             'menu_order' => $metadata['menu_order'] ?? 999,
-            'show_in_menu' => $metadata['show_in_menu'] ?? false
+            'show_in_menu' => $metadata['show_in_menu'] ?? false,
         ];
     }
 

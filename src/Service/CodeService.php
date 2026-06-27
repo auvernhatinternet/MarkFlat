@@ -16,7 +16,7 @@ class CodeService
     {
         $defaults = [
             'text' => '',
-            'display' => 'left'
+            'display' => 'left',
         ];
 
         $config = array_merge($defaults, $config);
@@ -38,7 +38,7 @@ class CodeService
 
         return [
             'html' => $html,
-            'js' => ''
+            'js' => '',
         ];
     }
 }

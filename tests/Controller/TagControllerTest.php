@@ -63,7 +63,7 @@ class TagControllerTest extends TestCase
         $container->expects($this->any())
             ->method('get')
             ->willReturnMap([
-                ['twig', $this->twig]
+                ['twig', $this->twig],
             ]);
         return $container;
     }
@@ -76,7 +76,7 @@ class TagControllerTest extends TestCase
             'posts' => [$this->testPost],
             'currentPage' => 1,
             'lastPage' => 1,
-            'total' => 1
+            'total' => 1,
         ];
 
         $this->postService->expects($this->once())
@@ -102,7 +102,7 @@ class TagControllerTest extends TestCase
             'posts' => [],
             'currentPage' => 1,
             'lastPage' => 1,
-            'total' => 0
+            'total' => 0,
         ];
 
         $this->postService->expects($this->once())
@@ -135,7 +135,7 @@ class TagControllerTest extends TestCase
             'posts' => array_slice($posts, 5, 5),
             'currentPage' => $page,
             'lastPage' => 2,
-            'total' => 10
+            'total' => 10,
         ];
 
         $this->postService->expects($this->once())

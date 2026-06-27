@@ -11,10 +11,10 @@ class SeoService
         $this->configService = $configService;
     }
 
-    public function getMetadata(string $title = null, string $description = null): array
+    public function getMetadata(?string $title = null, ?string $description = null): array
     {
         $siteName = $this->configService->get('MF_CMS_SITE_NAME');
-        
+
         return [
             'title' => $title ? "$title - $siteName" : $siteName,
             'description' => $description ?? $this->configService->get('MF_CMS_SITE_DESCRIPTION', ''),
@@ -22,7 +22,7 @@ class SeoService
             'og:title' => $title ?? $siteName,
             'og:description' => $description ?? $this->configService->get('MF_CMS_SITE_DESCRIPTION', ''),
             'og:type' => 'website',
-            'twitter:card' => 'summary'
+            'twitter:card' => 'summary',
         ];
     }
 
@@ -32,7 +32,7 @@ class SeoService
             '@context' => 'https://schema.org',
             '@type' => 'WebSite',
             'name' => $this->configService->get('MF_CMS_SITE_NAME'),
-            'description' => $this->configService->get('MF_CMS_SITE_DESCRIPTION', '')
+            'description' => $this->configService->get('MF_CMS_SITE_DESCRIPTION', ''),
         ];
 
         return array_merge($baseData, $data);
@@ -43,7 +43,7 @@ class SeoService
         $breadcrumbs = [
             '@context' => 'https://schema.org',
             '@type' => 'BreadcrumbList',
-            'itemListElement' => []
+            'itemListElement' => [],
         ];
 
         foreach ($items as $position => $item) {
@@ -51,7 +51,7 @@ class SeoService
                 '@type' => 'ListItem',
                 'position' => $position + 1,
                 'name' => $item['name'],
-                'item' => $item['url']
+                'item' => $item['url'],
             ];
         }
 

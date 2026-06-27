@@ -12,13 +12,13 @@ class MarkdownTailwindService
         'h3' => 'text-2xl font-bold mb-2',
         'h4' => 'text-xl font-bold mb-2',
         'h5' => 'text-lg font-bold mb-2',
-        'h6' => 'font-bold mb-2'
+        'h6' => 'font-bold mb-2',
     ];
 
     private const LIST_STYLES = [
         'ul' => 'list-disc list-inside mb-4',
         'ol' => 'list-decimal list-inside mb-4',
-        'li' => 'mb-1'
+        'li' => 'mb-1',
     ];
 
     private const TEXT_STYLES = [
@@ -26,19 +26,19 @@ class MarkdownTailwindService
         'strong' => 'font-bold',
         'em' => 'italic',
         'blockquote' => 'p-4 my-4 border-s-4 italic',
-        'hr' => 'border-t p-1 my-6'
+        'hr' => 'border-t p-1 my-6',
     ];
 
     private const CODE_STYLES = [
         'code' => 'p-1 rounded',
         'pre' => 'rounded overflow-auto',
-        'pre-code' => 'p-2 rounded block w-full'
+        'pre-code' => 'p-2 rounded block w-full',
     ];
 
     private const TABLE_STYLES = [
         'table' => 'min-w-full shadow rounded',
         'th' => 'py-2 px-4 border-l-1 first:border-l-0',
-        'td' => 'py-2 px-4 border-t-1 border-l-1 first:border-l-0'
+        'td' => 'py-2 px-4 border-t-1 border-l-1 first:border-l-0',
     ];
 
     private const COMPONENT_PLACEHOLDER = '___COMPONENT_%d___';

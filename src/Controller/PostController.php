@@ -45,7 +45,7 @@ class PostController extends AbstractController
             'total' => $paginatedPosts['total'],
             'current_route' => 'posts_index',
             'cms_site_name' => $_ENV['MF_CMS_SITE_NAME'] ?? 'MarkFlat CMS',
-            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default'
+            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default',
         ]);
     }
 
@@ -81,7 +81,7 @@ class PostController extends AbstractController
             'post' => $post,
             'current_route' => 'post_show',
             'cms_site_name' => $_ENV['MF_CMS_SITE_NAME'] ?? 'MarkFlat CMS',
-            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default'
+            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default',
         ]);
     }
 
@@ -95,7 +95,7 @@ class PostController extends AbstractController
             'posts' => $posts,
             'current_route' => 'posts_latest',
             'cms_site_name' => $_ENV['MF_CMS_SITE_NAME'] ?? 'MarkFlat CMS',
-            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default'
+            'cms_theme' => $_ENV['MF_CMS_THEME'] ?? 'default',
         ]);
     }
 }

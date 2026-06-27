@@ -37,7 +37,7 @@ class PostControllerTest extends TestCase
         $this->parameterBag->expects($this->any())
             ->method('get')
             ->willReturnMap([
-                ['kernel.project_dir', __DIR__ . '/../..']
+                ['kernel.project_dir', __DIR__ . '/../..'],
             ]);
 
         // Mock MarkdownTailwindService
@@ -58,13 +58,13 @@ class PostControllerTest extends TestCase
             ->method('has')
             ->willReturnMap([
                 ['twig', true],
-                ['parameter_bag', true]
+                ['parameter_bag', true],
             ]);
         $this->container->expects($this->any())
             ->method('get')
             ->willReturnMap([
                 ['twig', $this->twig],
-                ['parameter_bag', $this->parameterBag]
+                ['parameter_bag', $this->parameterBag],
             ]);
 
         // Set up environment variables for testing
@@ -140,7 +140,7 @@ class PostControllerTest extends TestCase
             'posts' => [$this->testPost],
             'currentPage' => 1,
             'lastPage' => 2,
-            'total' => 6
+            'total' => 6,
         ];
 
         $this->postService->expects($this->once())

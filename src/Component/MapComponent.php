@@ -28,7 +28,7 @@ class MapComponent implements MarkdownComponentInterface
         if (!$config) {
             return [
                 'html' => '<div class="' . ($theme['error'] ?? 'text-red-500') . '">Error: Invalid map configuration</div>',
-                'js' => ''
+                'js' => '',
             ];
         }
 

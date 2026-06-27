@@ -25,8 +25,9 @@ class ConfigService
             'site_name' => $_ENV['MF_CMS_SITE_NAME'] ?? 'MarkFlat CMS',
             'posts_per_page' => (int)($_ENV['MF_CMS_POSTS_PER_PAGE'] ?? 10),
             'theme' => $_ENV['MF_CMS_THEME'] ?? 'default',
+            'favicon' => $_ENV['MF_CMS_FAVICON'] ?? null,
             'posts_dir' => $_ENV['MF_CMS_POSTS_DIR'] ?? '/posts',
-            'pages_dir' => $_ENV['MF_CMS_PAGES_DIR'] ?? '/pages'
+            'pages_dir' => $_ENV['MF_CMS_PAGES_DIR'] ?? '/pages',
         ];
     }
 

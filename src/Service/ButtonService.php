@@ -8,7 +8,7 @@ class ButtonService
      * List of Tailwind spacing classes to extract
      */
     private const SPACING_PATTERNS = [
-        '/\s*(m[trblxy]?-\d+)/'  // mt-4, mr-2, mb-3, ml-1, mx-4, my-2, m-4
+        '/\s*(m[trblxy]?-\d+)/',  // mt-4, mr-2, mb-3, ml-1, mx-4, my-2, m-4
     ];
 
     /**
@@ -27,7 +27,7 @@ class ButtonService
             'text' => 'Button',
             'link' => '#',
             'type' => 'primary',
-            'display' => 'left'
+            'display' => 'left',
         ];
 
         $config = array_merge($defaults, $config);
@@ -73,7 +73,7 @@ class ButtonService
 
         return [
             'html' => $html,
-            'js' => ''
+            'js' => '',
         ];
     }
 }

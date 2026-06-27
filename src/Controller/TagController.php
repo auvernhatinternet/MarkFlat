@@ -36,7 +36,7 @@ class TagController extends AbstractController
             'currentPage' => $paginatedPosts['currentPage'],
             'lastPage' => $paginatedPosts['lastPage'],
             'total' => $paginatedPosts['total'],
-            'tag' => $tag
+            'tag' => $tag,
         ]);
     }
 }

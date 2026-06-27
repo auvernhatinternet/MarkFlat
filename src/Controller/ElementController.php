@@ -24,7 +24,7 @@ class ElementController extends AbstractController
     {
         $content = $elementService->getElementContent('home_hero', $this->elementDir);
         return $this->render('elements/_simple_markdown_element.html.twig', [
-            'content' => $content
+            'content' => $content,
         ]);
     }
 }

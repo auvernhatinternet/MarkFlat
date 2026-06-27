@@ -63,7 +63,7 @@ class PostService
             'posts' => array_slice($posts, $offset, $postsPerPage),
             'currentPage' => $currentPage,
             'lastPage' => $lastPage,
-            'total' => $total
+            'total' => $total,
         ];
     }
 
@@ -89,7 +89,7 @@ class PostService
             'posts' => array_slice($filteredPosts, $offset, $postsPerPage),
             'currentPage' => $currentPage,
             'lastPage' => $lastPage,
-            'total' => $total
+            'total' => $total,
         ];
     }
 
@@ -200,7 +200,7 @@ class PostService
             'posts' => array_slice($allPosts, $offset, $postsPerPage),
             'currentPage' => $currentPage,
             'lastPage' => $lastPage,
-            'total' => $total
+            'total' => $total,
         ];
     }
 }

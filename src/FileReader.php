@@ -50,7 +50,7 @@ class FileReader
             'metadata' => $metadata,
             'content' => $htmlContent,
             'raw_content' => $content,
-            'path' => $filePath
+            'path' => $filePath,
         ];
     }
 }

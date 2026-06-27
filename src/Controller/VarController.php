@@ -22,7 +22,7 @@ class VarController extends AbstractController
         $result = $_ENV[$var];
 
         return $this->render('var/varRender.html.twig', [
-            'var' => $result
+            'var' => $result,
         ]);
     }
 
@@ -38,7 +38,7 @@ class VarController extends AbstractController
         return $this->render('base/nav.html.twig', [
             'pages' => array_values($menuPages),
             'current_route' => $request->get('current_route'),
-            'current_path' => $request->get('current_path')
+            'current_path' => $request->get('current_path'),
         ]);
     }
 }

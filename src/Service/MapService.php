@@ -30,7 +30,7 @@ class MapService
             'center' => ['lat' => 48.8566, 'lng' => 2.3522],
             'zoom' => 13,
             'tiles' => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            'markers' => []
+            'markers' => [],
         ];
 
         if (!isset($config['id'])) {
@@ -79,7 +79,7 @@ class MapService
 
         return [
             'html' => $html,
-            'js' => $js
+            'js' => $js,
         ];
     }
 }
